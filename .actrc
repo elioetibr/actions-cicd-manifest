@@ -1,0 +1,8 @@
+-P ubuntu-latest=catthehacker/ubuntu:full-latest
+--detect-event
+--env-file=./.act/.env
+--eventpath=./.act/event.json
+--pull=false
+--secret-file=./.act/.secrets
+--use-gitignore=true
+--var-file=./.act/.vars

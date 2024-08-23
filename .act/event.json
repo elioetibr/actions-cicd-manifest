@@ -1,0 +1,11 @@
+{
+  "act": true,
+  "action": "act",
+  "inputs": {
+    "environment": "dev",
+    "gitops_file": ".github/workflows/tests/app/.gitops.yaml",
+    "owner": "elioetibr",
+    "ref": "main",
+    "repo": "actions-cicd-manifest"
+  }
+}

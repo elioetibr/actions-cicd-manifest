@@ -1,0 +1,102 @@
+name: Actions CICD Manifest
+description: This is the Action CICD Manifest
+author: elio@elio.eti.br
+
+inputs:
+  # TODO: Needs to check if will be required
+  version:
+    description: Semantic Version
+    required: true
+  gitops_file:
+    description: GitOps File Path/Name
+    required: true
+  environment:
+    default: dev
+    description: Environment
+    required: false
+  prefix:
+    description: Output Prefix
+    required: false
+  owner:
+    default: ${{ github.repository_owner }}
+    description: GitHub Organization Owner
+    required: false
+  repo:
+    default: ${{ github.repository.name }}
+    description: GitHub Repository
+    required: false
+  ref:
+    description: Commit Hash or Branch Reference
+    required: false
+  token:
+    default: ${{ github.token }}
+    description: GitHub Token
+    required: false
+
+outputs:
+  app_of_apps:
+    description: Repository GitOps App of Apps that contain the application manifest
+  app_of_apps_service_name:
+    description: The Service name in App of Apps Manifest
+  app_repo:
+    description: Application Repository
+  app_version:
+    description: Application Version
+  approval_for_promotion:
+    description: If requires approval for promotion
+  aws_account_id:
+    description: AWS Account ID
+  aws_region:
+    description: AWS Region
+  branch:
+    description: Current Working Branch
+  chart_version:
+    description: Helm Chart Version
+  cluster:
+    description: Environment Cluster
+  description:
+    description: Environment Description
+  dockerfile:
+    description: Dockerfile Path
+  ecr_repository_name:
+    description: ECR Repository Name
+  enable_tests:
+    description: Enabled UnitTest on Docker Build
+  enabled:
+    description: If Pipelines are enabled
+  environment:
+    description: Environment Name
+  gitops_file:
+    description: GitOps Manifest file path
+  helm_chart_repo:
+    description: Help Chart Repository Name
+  helm_chart_service_name:
+    description: Helm Chart Service Name
+  is_mono_repo:
+    description: If is a MonoRepo CICD
+  major:
+    description: Major from Semantic Version
+  minor:
+    description: Minor from Semantic Version
+  name:
+    description: Application Name
+  next_environment:
+    description: Next Environment Name
+  owner:
+    description: Organization Owner Name
+  patch:
+    description: Patch from Semantic Version
+  repo:
+    description: Repository
+  sem_ver:
+    description: Application Semantic Version
+  service:
+    description: Application Service Name. Match with Helm Charts
+  slack:
+    description: Slack Notification Configurations
+  with_gate:
+    description: Determines if Deployment will have a get to approval
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
